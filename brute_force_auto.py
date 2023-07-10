@@ -17,7 +17,7 @@ login_link.click()
 
 # Trova l'elemento del campo di input per il nome utente utilizzando l'ID
 username_field = driver.find_element(By.ID, "wpName1")
-username_field.send_keys("CristianoRonaldo")
+username_field.send_keys("exampleusername")
 
 # Itera attraverso la lista delle password
 for password in lista_parole:
