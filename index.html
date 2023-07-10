@@ -4,8 +4,8 @@
     <title>Cyber Security - VelvetAliien</title>
     <style>
         body {
-            background-color: #001f3f;
-            color: #00ffcc;
+            background-color: #000000;
+            color: #6A00B8;
             font-family: "Courier New", monospace;
             margin: 0;
             padding: 20px;
@@ -47,6 +47,17 @@
         a:hover {
             color: #FFDC00;
         }
+        
+        pre {
+            background-color: #001F3F;
+            color: #39FF14;
+            padding: 20px;
+            overflow-x: auto;
+        }
+        
+        code {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -81,7 +92,8 @@
     <h2>Spiegazione del Codice Python</h2>
     <p>Il codice Python che segue rappresenta una semplice implementazione di una blockchain:</p>
     
-    <pre><code>import hashlib
+    <pre><code>
+<font color="#FFFFFF">import hashlib
 import datetime
 
 class Block:
@@ -144,23 +156,21 @@ for block in my_blockchain.chain:
     print()
 
 # Verifica dell'integrità della blockchain
-print("La blockchain è valida?", my_blockchain.is_chain_valid())</code></pre>
+print("La blockchain è valida?", my_blockchain.is_chain_valid())</font>
+    </code></pre>
 
-
-    
     <p>Questo codice Python crea una semplice blockchain. Viene definita una classe `Block` che rappresenta un blocco nella blockchain. Ogni blocco ha un indice, un timestamp, dei dati, l'hash del blocco precedente e il proprio hash. L'hash del blocco viene calcolato utilizzando la funzione `calculate_hash()`, che combina l'indice, il timestamp, i dati e l'hash precedente del blocco tramite la funzione di hash crittografico SHA-256.</p>
 
-    <p>Viene anche definita una classe `Blockchain` che rappresenta la blockchain stessa. Questa classe ha un'array chiamato `chain` che contiene i blocchi. La blockchain viene inizializzata con un blocco di genesi utilizzando il metodo `create_genesis_block()`. La classe `Blockchain` fornisce metodi per ottenere l'ultimo blocco, aggiungere nuovi blocchi e verificare l'integrità della catena.</p>
+    <p>Viene anche definita una classe `Blockchain` che rappresenta la blockchain stessa. Questa classe ha un array chiamato `chain` che contiene i blocchi. La blockchain viene inizializzata con un blocco di genesi utilizzando il metodo `create_genesis_block()`. La classe `Blockchain` fornisce metodi per ottenere l'ultimo blocco, aggiungere nuovi blocchi e verificare l'integrità della catena.</p>
 
     <p>Nell'esempio fornito, viene creata un'istanza di `Blockchain` chiamata `my_blockchain`. Successivamente, vengono creati due blocchi aggiuntivi utilizzando la classe `Block` e vengono aggiunti alla blockchain utilizzando il metodo `add_block()`. Infine, viene stampata la blockchain utilizzando un ciclo `for` per iterare su ciascun blocco e visualizzarne i dettagli. Viene anche eseguita una verifica di integrità utilizzando il metodo `is_chain_valid()` per determinare se la blockchain è valida.</p>
 
     <p>In sintesi, questo codice Python rappresenta una semplice implementazione di una blockchain. Può essere utilizzato come punto di partenza per comprendere i concetti di base delle blockchain o come base per creare una blockchain più avanzata con funzionalità aggiuntive come meccanismi di consenso o transazioni.</p>
 
     <p>Spero che questa spiegazione ti sia utile per comprendere il codice Python fornito!</p>
-...
-...
 </body>
 </html>
+
 
 
 
