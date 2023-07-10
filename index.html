@@ -1,176 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cyber Security - VelvetAliien</title>
-    <style>
-        body {
-            background-color: #000000;
-            color: #6A00B8;
-            font-family: "Courier New", monospace;
-            margin: 0;
-            padding: 20px;
-        }
-        
-        h1 {
-            color: #FF4136;
-            font-size: 36px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        h2 {
-            color: #FFDC00;
-            font-size: 24px;
-            margin-top: 30px;
-        }
-        
-        p {
-            font-size: 18px;
-            line-height: 1.5;
-        }
-        
-        ul {
-            margin-left: 30px;
-            padding-left: 15px;
-        }
-        
-        li {
-            margin-bottom: 10px;
-        }
-        
-        a {
-            color: #FF4136;
-            text-decoration: none;
-            transition: color 0.3s ease-in-out;
-        }
-        
-        a:hover {
-            color: #FFDC00;
-        }
-        
-        pre {
-            background-color: #001F3F;
-            color: #39FF14;
-            padding: 20px;
-            overflow-x: auto;
-        }
-        
-        code {
-            display: block;
-        }
-    </style>
+  <title>Cyber Security Presentation</title>
+  <style>
+    body {
+      background-color: #333333;
+      color: #9f8aff;
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      color: #00ff00;
+    }
+    
+    a {
+      color: #00ff00;
+      text-decoration: none;
+    }
+    
+    p {
+      color: #9f8aff;
+    }
+  </style>
 </head>
 <body>
-    <h1>Cyber Security</h1>
-    <p>La cyber security è un campo fondamentale nell'era digitale in cui viviamo. Riguarda la protezione dei sistemi informatici, delle reti e dei dati da attacchi dannosi.</p>
-    
-    <h2>Importanza della Cyber Security</h2>
-    <p>Gli attacchi informatici possono causare danni significativi, come il furto di informazioni sensibili, l'interruzione dei servizi online, la compromissione della privacy e molto altro. La cyber security è essenziale per proteggere i dati personali, aziendali e governativi.</p>
-    
-    <h2>Metodi di difesa</h2>
-    <p>Esistono diversi metodi per proteggere i sistemi e le reti:</p>
-    <ul>
-        <li>Utilizzo di firewall per bloccare il traffico non autorizzato.</li>
-        <li>Implementazione di software di sicurezza, come antivirus e antispyware.</li>
-        <li>Aggiornamento costante dei sistemi operativi e delle applicazioni per correggere vulnerabilità.</li>
-        <li>Utilizzo di password robuste e autenticazione a due fattori.</li>
-        <li>Formazione degli utenti per riconoscere e evitare truffe informatiche, come phishing e social engineering.</li>
-    </ul>
-    
-    <h2>Carriere nella Cyber Security</h2>
-    <p>La cyber security offre diverse opportunità di carriera. Alcuni ruoli comuni includono:</p>
-    <ul>
-        <li>Esperto di sicurezza informatica</li>
-        <li>Analista di vulnerabilità</li>
-        <li>Incident Responder</li>
-        <li>Consulente di sicurezza</li>
-        <li>Penetration Tester</li>
-    </ul>
-    
-    <p>La cyber security è un campo in continua evoluzione, poiché le minacce informatiche diventano sempre più sofisticate. È importante rimanere aggiornati sulle ultime tecniche di difesa e protezione.</p>
-    
-    <h2>Spiegazione del Codice Python</h2>
-    <p>Il codice Python che segue rappresenta una semplice implementazione di una blockchain:</p>
-    
-    <pre><code>
-<font color="#FFFFFF">import hashlib
-import datetime
-
-class Block:
-    def __init__(self, index, timestamp, data, previous_hash):
-        self.index = index
-        self.timestamp = timestamp
-        self.data = data
-        self.previous_hash = previous_hash
-        self.hash = self.calculate_hash()
-
-    def calculate_hash(self):
-        hash_string = str(self.index) + str(self.timestamp) + str(self.data) + str(self.previous_hash)
-        return hashlib.sha256(hash_string.encode()).hexdigest()
-
-class Blockchain:
-    def __init__(self):
-        self.chain = [self.create_genesis_block()]
-
-    def create_genesis_block(self):
-        return Block(0, datetime.datetime.now(), "Genesis Block", "0")
-
-    def get_latest_block(self):
-        return self.chain[-1]
-
-    def add_block(self, new_block):
-        new_block.previous_hash = self.get_latest_block().hash
-        new_block.hash = new_block.calculate_hash()
-        self.chain.append(new_block)
-
-    def is_chain_valid(self):
-        for i in range(1, len(self.chain)):
-            current_block = self.chain[i]
-            previous_block = self.chain[i - 1]
-
-            if current_block.hash != current_block.calculate_hash():
-                return False
-
-            if current_block.previous_hash != previous_block.hash:
-                return False
-
-        return True
-
-# Creazione di una blockchain
-my_blockchain = Blockchain()
-
-# Aggiunta di blocchi alla blockchain
-block1 = Block(1, datetime.datetime.now(), "Dati del blocco 1", "")
-my_blockchain.add_block(block1)
-
-block2 = Block(2, datetime.datetime.now(), "Dati del blocco 2", "")
-my_blockchain.add_block(block2)
-
-# Stampa della blockchain
-for block in my_blockchain.chain:
-    print("Index:", block.index)
-    print("Timestamp:", block.timestamp)
-    print("Data:", block.data)
-    print("Previous Hash:", block.previous_hash)
-    print("Hash:", block.hash)
-    print()
-
-# Verifica dell'integrità della blockchain
-print("La blockchain è valida?", my_blockchain.is_chain_valid())</font>
-    </code></pre>
-
-    <p>Questo codice Python crea una semplice blockchain. Viene definita una classe `Block` che rappresenta un blocco nella blockchain. Ogni blocco ha un indice, un timestamp, dei dati, l'hash del blocco precedente e il proprio hash. L'hash del blocco viene calcolato utilizzando la funzione `calculate_hash()`, che combina l'indice, il timestamp, i dati e l'hash precedente del blocco tramite la funzione di hash crittografico SHA-256.</p>
-
-    <p>Viene anche definita una classe `Blockchain` che rappresenta la blockchain stessa. Questa classe ha un array chiamato `chain` che contiene i blocchi. La blockchain viene inizializzata con un blocco di genesi utilizzando il metodo `create_genesis_block()`. La classe `Blockchain` fornisce metodi per ottenere l'ultimo blocco, aggiungere nuovi blocchi e verificare l'integrità della catena.</p>
-
-    <p>Nell'esempio fornito, viene creata un'istanza di `Blockchain` chiamata `my_blockchain`. Successivamente, vengono creati due blocchi aggiuntivi utilizzando la classe `Block` e vengono aggiunti alla blockchain utilizzando il metodo `add_block()`. Infine, viene stampata la blockchain utilizzando un ciclo `for` per iterare su ciascun blocco e visualizzarne i dettagli. Viene anche eseguita una verifica di integrità utilizzando il metodo `is_chain_valid()` per determinare se la blockchain è valida.</p>
-
-    <p>In sintesi, questo codice Python rappresenta una semplice implementazione di una blockchain. Può essere utilizzato come punto di partenza per comprendere i concetti di base delle blockchain o come base per creare una blockchain più avanzata con funzionalità aggiuntive come meccanismi di consenso o transazioni.</p>
-
-    <p>Spero che questa spiegazione ti sia utile per comprendere il codice Python fornito!</p>
+  <h1>Introduzione alla Cyber Security</h1>
+  
+  <p>La cyber security, o sicurezza informatica, è un campo di studio che si occupa della protezione delle informazioni digitali e dei sistemi informatici da minacce e rischi legati alla sicurezza.</p>
+  
+  <h2>Obiettivi della Cyber Security</h2>
+  
+  <p>I principali obiettivi della cyber security includono:</p>
+  
+  <ul>
+    <li>Proteggere le informazioni sensibili da accessi non autorizzati</li>
+    <li>Prevenire e mitigare gli attacchi informatici</li>
+    <li>Assicurare la continuità operativa dei sistemi</li>
+    <li>Mantenere la privacy degli utenti e dei dati</li>
+    <li>Garantire l'integrità delle informazioni</li>
+    <li>Assicurare la conformità alle normative sulla sicurezza</li>
+  </ul>
+  
+  <h2>Tipi di Minacce Informatiche</h2>
+  
+  <p>Esistono diverse tipologie di minacce informatiche, tra cui:</p>
+  
+  <ol>
+    <li><strong>Malware:</strong> Software dannoso progettato per danneggiare, accedere illegalmente o rubare dati dai sistemi informatici.</li>
+    <li><strong>Hacking:</strong> L'accesso non autorizzato a un sistema o una rete al fine di comprometterne la sicurezza o ottenere informazioni riservate.</li>
+    <li><strong>Phishing:</strong> Una tecnica di frode che mira a indurre gli utenti a rivelare informazioni sensibili, come password o dati finanziari, simulando siti o comunicazioni legittime.</li>
+    <li><strong>Attacchi DDoS:</strong> Un attacco che sovraccarica un sistema o una rete generando un traffico di dati eccessivo, rendendo i servizi inaccessibili agli utenti legittimi.</li>
+    <li><strong>Ingenieria Sociale:</strong> Un'attività che mira a manipolare gli utenti al fine di ottenere informazioni riservate o accesso a sistemi protetti.</li>
+  </ol>
+  
+  <h2>Misure di Sicurezza Informatica</h2>
+  
+  <p>Per proteggere i sistemi informatici e le informazioni, vengono adottate diverse misure di sicurezza informatica, tra cui:</p>
+  
+  <ul>
+    <li>Utilizzo di password complesse e uniche per gli account</li>
+    <li>Implementazione di firewall per monitorare e controllare il traffico di rete</li>
+    <li>Aggiornamento regolare dei software con le patch di sicurezza più recenti</li>
+    <li>Utilizzo di software antivirus per rilevare e rimuovere malware</li>
+    <li>Backup regolari dei dati importanti per la loro ripristinabilità in caso di perdita o danni</li>
+    <li>Monitoraggio attivo dei log di sistema per rilevare attività sospette</li>
+    <li>Formazione e consapevolezza degli utenti per riconoscere e rispondere alle minacce informatiche</li>
+  </ul>
+  
+  <h2>Programmi Corso Cyber Security</h2>
+  
+  <ul>
+    <li><a href="https://www.example.com/programma1">Programma 1</a></li>
+    <li><a href="https://www.example.com/programma2">Programma 2</a></li>
+    <li><a href="https://www.example.com/programma3">Programma 3</a></li>
+  </ul>
 </body>
 </html>
-
 
 
 
