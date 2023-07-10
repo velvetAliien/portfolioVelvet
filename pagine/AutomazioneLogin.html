@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Automazione del Login</title>
+  <style>
+    body {
+      background-color: #333333;
+      color: #9f8aff;
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      color: #00ff00;
+    }
+    
+    h2 {
+      color: yellow;
+    }
+    
+    p {
+      color: #cc99ff;
+    }
+    
+    pre {
+      background-color: #666666;
+      color: #ffffff;
+      padding: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Automazione del Login</h1>
+  
+  <p>Questo programma utilizza la libreria Selenium per automatizzare il processo di login su una pagina web utilizzando una lista di password predefinite.</p>
+  
+  <h2>Spiegazione del Programma</h2>
+  
+  <ol>
+    <li>Import delle librerie: Vengono importate le librerie necessarie, inclusa <code>webdriver</code> da Selenium e <code>By</code> per selezionare gli elementi tramite criteri come l'ID.</li>
+    <li>Definizione della lista di parole: Viene definita una lista di parole (<code>lista_parole</code>) che rappresentano le password da provare per il login.</li>
+    <li>Inizializzazione del driver del browser: Viene inizializzato il driver del browser, in questo caso, il driver di Chrome.</li>
+    <li>Apertura della pagina web: Viene aperta la pagina web specificata dall'URL.</li>
+    <li>Effettuare il clic sul link di login: Viene cercato l'elemento del link di login con l'ID "pt-login" e viene effettuato il clic su di esso.</li>
+    <li>Trovare l'elemento del campo di input per il nome utente: Viene cercato l'elemento del campo di input per il nome utente utilizzando l'ID "wpName1" e viene inserito il valore "exampleusername".</li>
+    <li>Iterazione attraverso la lista delle password: Viene iterato attraverso la lista delle password utilizzando un ciclo <code>for</code>.</li>
+    <li>Prova di login con una password: Per ogni password nella lista, viene cercato l'elemento del campo di input per la password utilizzando l'ID "wpPassword1" e viene effettuato il clic sul pulsante di login utilizzando l'ID "wpLoginAttempt".</li>
+    <li>Verifica del successo del login: Viene verificato se il login è riuscito controllando se la stringa "Benvenuto" è presente nella pagina. Se il login ha successo, viene stampato un messaggio e il ciclo viene interrotto. In caso contrario, viene stampato un messaggio di login fallito.</li>
+    <li>Gestione degli errori: Se si verifica un errore durante il processo di login, viene stampato un messaggio di errore.</li>
+    <li>Chiusura del browser: Viene chiuso il browser.</li>
+  </ol>
+  
+  <h2>Codice Python</h2>
+  
+  <pre><code>from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+lista_parole = ["parola1", "parola2", "parola3", "parola4", "parola5", "parola6", "parola7", "parola8", "parola9",
+                "parola10"]
+
+# Inizializza il driver del browser (per esempio, Chrome)
+driver = webdriver.Chrome()
+
+# Apri la pagina web
+url = "https://www.example.com/login"
+driver.get(url)
+
+# Effettua il clic sul link con l'ID "pt-login"
+login_link = driver.find_element(By.ID, "pt-login")
+login_link.click()
+
+# Trova l'elemento del campo di input per il nome utente utilizzando l'ID
+username_field = driver.find_element(By.ID, "wpName1")
+username_field.send_keys("exampleusername")
+
+# Itera attraverso la lista delle password
+for password in lista_parole:
+    try:
+        # Trova l'elemento del campo di input per la password utilizzando l'ID
+        password_field = driver.find_element(By.ID, "wpPassword1")
+        password_field.clear()  # Pulisci il campo di input precedente
+        password_field.send_keys(password)
+
+        # Trova il pulsante di login utilizzando l'ID e fai clic su di esso
+        login_button = driver.find_element(By.ID, "wpLoginAttempt")
+        login_button.click()
+
+        # Verifica se il login è riuscito
+        if "Benvenuto" in driver.page_source:
+            print("Login riuscito con la password:", password)
+            break  # Esci dal ciclo se il login ha successo
+        else:
+            print("Login fallito con la password:", password)
+
+    except:
+        print("Si è verificato un errore durante il login con la password:", password)
+
+# Chiudi il browser
+driver.quit()</code></pre>
+</body>
+</html>
