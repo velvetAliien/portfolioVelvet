@@ -12,18 +12,105 @@
     h1 {
       color: #00ff00;
     }
+   
+    h2 {
+      color: yellow;
+    }
     
     a {
-      color: #00ff00;
+      color: #00aaff;
       text-decoration: none;
     }
     
     p {
       color: #9f8aff;
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menu Dropdown</title>
+  <style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-item {
+      color: #333333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .dropdown-item:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <div class="dropdown">
+    <button class="dropdown-item">Menu</button>
+    <div class="dropdown-content">
+      <a href="https://github.com/velvetAliien/portfolioVelvet/blob/main/pagine/AutomazioneLogin.html">Automazione del Login</a>
+      <a href="pagina2.html">App Scansione Sito Web</a>
+      <a href="pagina3.html">Opzione 3</a>
+    </div>
+  </div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Barra di Ricerca</title>
+  <style>
+    .search-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    .search-input {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+    }
+    
+    .search-button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <input type="text" class="search-input" placeholder="Cerca...">
+    <button class="search-button">Cerca</button>
+  </div>
+</body>
+</html>
+
+
   <h1>Introduzione alla Cyber Security</h1>
   
   <p>La cyber security, o sicurezza informatica, è un campo di studio che si occupa della protezione delle informazioni digitali e dei sistemi informatici da minacce e rischi legati alla sicurezza.</p>
@@ -67,15 +154,58 @@
     <li>Formazione e consapevolezza degli utenti per riconoscere e rispondere alle minacce informatiche</li>
   </ul>
   
-  <h2>Programmi Corso Cyber Security</h2>
-  
-  <ul>
-    <li><a href="https://github.com/velvetAliien/portfolioVelvet/blob/main/block_chain/block_chain_spiegazione/block_chain_spiegazione.html">Programma Block Chain</a></li>
-    <li><a href="https://www.example.com/programma2">Programma 2</a></li>
-    <li><a href="https://www.example.com/programma3">Programma 3</a></li>
-  </ul>
+ <h1>Programmi Corso Cyber Security</h1>
+
+ <h1>1. Programma Block Chain</h1>
+
+ <h2>Cos'è una Block Chain</h2>
+
+ <p>Una blockchain, o "catena di blocchi" in italiano, è una tecnologia di registro distribuito che consente la creazione e il mantenimento di un registro immutabile di transazioni o eventi. È una struttura dati decentralizzata e sicura che registra le transazioni in blocchi collegati tra loro in modo sequenziale. Una blockchain è composta da una serie di blocchi, in cui ogni blocco contiene un insieme di transazioni o informazioni. Ogni blocco è collegato al blocco precedente attraverso un hash crittografico del blocco precedente, formando una catena di blocchi. Questa connessione crittografica garantisce l'integrità e la sicurezza della blockchain, poiché qualsiasi modifica apportata a un blocco influirà sul suo hash e su tutti i blocchi successivi.</p>
+
+ <p>La caratteristica chiave di una blockchain è che è distribuita tra molti partecipanti o nodi di rete. Ogni partecipante della rete ha una copia del registro completo e contribuisce alla validazione e alla conferma delle transazioni. Ciò rende la blockchain resistente alla censura, al controllo centralizzato e agli attacchi malevoli.</p>
+
+ <p>Le blockchain sono ampiamente utilizzate per le criptovalute come il Bitcoin, ma le loro applicazioni vanno oltre le transazioni finanziarie. Possono essere utilizzate per la gestione delle identità digitali, il tracciamento della provenienza delle merci, la gestione degliaccordi contrattuali intelligenti (smart contract), il voto elettronico, la gestione delle forniture e molte altre applicazioni che richiedono trasparenza, sicurezza e immutabilità dei dati.</p>
+
+<h2>Qui puoi trovare il codice per il programma:</h2>
+
+<p><a href="https://github.com/velvetAliien/portfolioVelvet/blob/main/block_chain/block_chain.py">Programma Block Chain</a></p>
+
+<h1>2. App di registrazione accesso con MySQL</h1>
+
+ <p>L'applicazione gestisce la registrazione e l'accesso degli utenti a un sistema utilizzando un database MySQL.</p>
+ <p>Questo programma crea un'applicazione web per gestire la registrazione e l'accesso degli utenti, utilizzando una connessione al database MySQL per memorizzare le informazioni degli utenti.</p>
+
+<h2>Qui puoi trovare il codice .py e i templates:</h2>
+
+<p><a href="https://github.com/velvetAliien/portfolioVelvet/tree/main/mysql_user_psw">App registrazione accesso MySQL</a></p>
+
+<h1>3. App scan sito web</h1>
+
+ <p>Questo programma fornisce una semplice interfaccia web per analizzare un sito web specificato, restituendo informazioni rilevanti sull'analisi come certificati SSL, cookie, porte aperte, servizi e script.</p>
+
+<h2>Qui puoi trovare il codice .py e i templates:</h2>
+
+<p><a href="https://github.com/velvetAliien/portfolioVelvet/tree/main/scanSito">App Scan sito web</a></p>
+
+<h1>4. BruteForce auto login</h1>
+
+<p>Questo programma utilizza la libreria Selenium per automatizzare il processo di login su una pagina web utilizzando una lista di password predefinite.</p>
+
+<h2>Qui puoi trovare il codice per il programma:</h2>
+
+<p><a href="https://github.com/velvetAliien/portfolioVelvet/blob/main/brute_force_auto.py">Programma BruteForce auto login</a></p>
+
+<h1>3. Get IP Address</h1>
+
+<p>Questo programma serve per ottenere l'indirizzo IP corrispondente a un dato URL utilizzando la libreria socket di Python.</p>
+
+<h2>Qui puoi trovare il codice per il programma:</h2>
+
+<p><a href="https://github.com/velvetAliien/portfolioVelvet/blob/main/get_ip_address.py">App Get IP address</a></p>
+
+
+
+
 </body>
 </html>
-
-
 
